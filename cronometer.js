@@ -19,7 +19,7 @@ function Cronometer() {
                 hour = min >= 60 ? ++hour : hour;
                 min = min % 60;
                 display(seg, min, hour);
-            }, 10);
+            }, 1000);
         },
 
         pause(){
