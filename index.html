@@ -10,9 +10,12 @@
     <div class="cronometer">
         <p class="cronometer__cronometer">00:00:00</p>
         <div class="controls">
-            <button type="button" class="controls__start-and-pause">Start / Pause</button>
-            <button type="button" class="controls__reset hidden">Reset</button>
+            <button type="button" name="startPause" class="controls__start-and-pause">Start / Pause</button>
+            <button type="button" name="reset" class="controls__reset hidden">Reset</button>
+            <button type="button" name="lap" class="controls__laps hidden">Lap</button>
         </div>
+        <ol class="cronometer__laps">
+        </ol>
     </div>
 </body>
 <script type="module">
@@ -23,9 +26,11 @@
     // HTML Elements
     const startPause = document.querySelector('.controls__start-and-pause');
     const reset = document.querySelector('.controls__reset');
+    const laps = document.querySelector('.controls__laps');
+    const lapsList = document.querySelector('.cronometer__laps');
     const time = document.querySelector('.cronometer__cronometer');
 
-    const oView = new View(startPause, reset, time);
+    const oView = new View(startPause, reset, time, {button: laps, list: lapsList});
     const oCronometer = new Cronometer();
     oCronometer.setDisplay(oView.displayCronometer);
     oView.setCronometer(oCronometer);
