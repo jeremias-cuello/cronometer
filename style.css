@@ -1,3 +1,71 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: rgb(187, 255, 232);
+}
+
+.cronometer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(173, 255, 184);
+    gap: 10px;
+    padding: 20px;
+    border: solid black 2px;
+    border-radius: 10px;
+    width: max-content;
+    height: min-content;
+}
+
+.controls{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.controls__button{
+    font-size: 30px;
+    padding: 5px;
+    background-color: rgb(66, 255, 167);
+    border-radius: 5px;
+    border: solid black 1px;
+}
+
+.controls__button:hover{
+    background-color: rgb(78, 255, 107);
+    cursor: pointer;
+}
+
+.cronometer__cronometer{
+    font-size: 100px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+li{
+    font-size: xx-large;
+    padding: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    width: 350px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.lap-par{
+    background-color: rgb(156 255 129);
+}
+
+.lap-impar{
+    background-color: rgb(102, 250, 102);
+}
+
 .hidden{
-    visibility: hidden;
+    display: none;
 }

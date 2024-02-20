@@ -22,8 +22,8 @@ function View(startPauseParam, resetParam, timerElementParam, lapsParam){
             timerElement.innerText = ssmmhh(seg, min, hour);
         },
         handler(e) {
+            startPauseElement.innerText = "Continuar / Pausar";
             const button = e.target.name;
-            console.log(button);
 
             switch (button) {
                 case 'reset': this.reset(); break;
@@ -53,11 +53,13 @@ function View(startPauseParam, resetParam, timerElementParam, lapsParam){
             lapElement.classList.add('hidden');
             oCronometer.reset();
             this.removeLaps();
+            startPauseElement.innerText = "Iniciar / Pausar";
         },
         laps(){
 
             const addLap = lap => {
                 const li = document.createElement('li');
+                li.classList.add(`lap-${lapsList.children.length % 2 === 0 ? 'par' : 'impar'}`);
                 li.innerText = lap;
                 lapsList.appendChild(li);
             }
