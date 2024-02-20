@@ -11,8 +11,8 @@
         <p class="cronometer__cronometer">00:00:00</p>
         <div class="controls">
             <button type="button" class="controls__start">Start</button>
-            <button type="button" class="controls__pause">pause</button>
-            <button type="button" class="controls__reset">Reset</button>
+            <button type="button" class="controls__pause hidden">pause</button>
+            <button type="button" class="controls__reset hidden">Reset</button>
         </div>
     </div>
 </body>
@@ -27,15 +27,11 @@
     const reset = document.querySelector('.controls__reset');
     const time = document.querySelector('.cronometer__cronometer');
 
-    const oView = new View(time);
+    const oView = new View(start, pause, reset, time);
     const oCronometer = new Cronometer();
     oCronometer.setDisplay(oView.displayCronometer);
     oView.setCronometer(oCronometer);
 
-    document.addEventListener('DOMContentLoaded', () => {
-        start.addEventListener('click', oView.start);
-        pause.addEventListener('click', oView.pause);
-        reset.addEventListener('click', oView.reset);
-    })
+    oView.init();
 </script>
 </html>
