@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Cronometer</title>
+    <link rel="icon" href="img/cronometro.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="cronometer">
+        <p class="cronometer__cronometer">00:00:00</p>
+        <div class="controls">
+            <button type="button" class="controls__start">Start</button>
+            <button type="button" class="controls__pause">pause</button>
+            <button type="button" class="controls__reset">Reset</button>
+        </div>
+    </div>
+</body>
+<script type="module">
+    // Imports
+    import { Cronometer } from "./cronometer.js";
+    import { View } from "./view.js";
+
+    // HTML Elements
+    const start = document.querySelector('.controls__start');
+    const pause = document.querySelector('.controls__pause');
+    const reset = document.querySelector('.controls__reset');
+    const time = document.querySelector('.cronometer__cronometer');
+
+    const oView = new View(time);
+    const oCronometer = new Cronometer();
+    oCronometer.setDisplay(oView.displayCronometer);
+    oView.setCronometer(oCronometer);
+
+    document.addEventListener('DOMContentLoaded', () => {
+        start.addEventListener('click', oView.start);
+        pause.addEventListener('click', oView.pause);
+        reset.addEventListener('click', oView.reset);
+    })
+</script>
+</html>
