@@ -16,6 +16,8 @@ function Cronometer() {
                 seg++;
                 seg = seg % 60;
                 min = seg === 0 ? ++min : min;
+                hour = min >= 60 ? ++hour : hour;
+                min = min % 60;
                 display(seg, min, hour);
             }, 10);
         },
